@@ -1,0 +1,191 @@
+
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+header {
+    background-color: #333;
+    padding: 10px 20px;
+    border-radius: 20px; 
+    margin: 20px; 
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 40px; 
+    background-color: #92c014; 
+    border-radius: 20px; 
+}
+
+.navbar .logo a {
+    font-size: 24px;
+    font-weight: bold;
+    color: rgb(19, 18, 18);
+    text-decoration: none;
+}
+
+.nav-links {
+    list-style-type: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: rgb(14, 12, 12);
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #f39c12;
+}
+
+main {
+    min-height: 80vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4;
+}
+.container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+textarea {
+    resize: none;
+}
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+button:hover {
+    background-color: #0056b3;
+}
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    margin-top: auto;
+    position: relative;
+}
+.facebook-link {
+    color: white; 
+    text-decoration: none; 
+    font-size: 16px;
+}
+
+.facebook-link:hover {
+    text-decoration: underline; 
+}
+/* Existing CSS here */
+
+ /* Media Queries for Responsiveness  */
+@media (max-width: 1200px) {
+    .navbar {
+        flex-wrap: wrap;
+        padding: 10px 20px;
+    }
+
+    .property-cards {
+        flex-wrap: wrap;
+    }
+
+    .property-card {
+        width: 45%;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .property-card {
+        width: 100%;
+    }
+
+    .search-bar input {
+        width: 150px;
+    }
+
+    #propertiesLISTINGS,
+    #search {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .img1, .img2, .img3, .img4, .img5, .img6, .img7, .img8, .img9 {
+        height: auto;
+        width: 100%;
+        margin: 10px auto;
+        position: static;
+    }
+
+    .price {
+        font-size: 24px;
+    }
+
+    #inspiringLINE {
+        font-size: 20px;
+    }
+
+    .what-we-do {
+        margin: 20px 10px;
+        padding-left: 10px;
+    }
+
+    .service-item {
+        width: 100%;
+    }
+}
+
+

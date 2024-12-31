@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate Agency</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+    <style>
+        /* General Reset */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            box-sizing: border-box;
+            width: 100%;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
+
+        /* Global Styles */
+        * {
+            box-sizing: inherit;
+        }
+
+        /* Carousel Container */
+        .carousel-container {
+            width: 100%; /* Ensure no gap on right side */
+            max-width: 1200px;
+            margin: 40px auto;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #ffffff;
+        }
+
+        .swiper-container {
+            width: 100%;
+            height: 400px;
+        }
+
+        .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Pagination Dots Styling */
+        .swiper-pagination-bullet {
+            background-color: #000;
+            opacity: 0.8;
+        }
+
+        .swiper-pagination-bullet-active {
+            background-color: #ff6600;
+        }
+
+        /* Listing Page Content */
+        .listing-page-content {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 22px;
+            color: #333;
+            padding: 40px;
+            background-color: #fffae5;
+            border-radius: 12px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            width: 100%; /* Ensure it stretches to full width */
+            max-width: 900px; /* Limit the max width */
+            margin-left: auto;
+            margin-right: auto;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .listing-page-content:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .listing-page-content p {
+            margin-top: 20px;
+            line-height: 1.6;
+            font-size: 26px;
+            font-weight: 600;
+            color: #444;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .listing-page-content p span {
+            color: #ff6600;
+            font-weight: bold;
+        }
+
+        /* Content Sections */
+        .content-section {
+            background-color: #ffffff;
+            padding: 30px;
+            margin-top: 40px;
+            font-size: 20px;
+            color: #444;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%; /* Ensure it stretches to full width */
+            max-width: 900px; /* Limit the max width */
+            margin-left: auto;
+            margin-right: auto;
+            box-sizing: border-box;
+            text-align: left;
+        }
+
+        .content-section h2 {
+            color: #ff6600;
+            font-size: 30px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .content-section p {
+            line-height: 1.8;
+            font-size: 18px;
+            color: #333;
+            text-align: left;
+        }
+
+        /* Last Feature Section (Different Styling) */
+        .last-feature {
+            background-color: #2c3e50; /* Dark Blue */
+            color: #fff; /* White text */
+            padding: 40px;
+            margin-top: 40px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            width: 100%;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .last-feature h2 {
+            font-size: 28px;
+            color: #ecf0f1; /* Light Grey for Heading */
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .last-feature p {
+            font-size: 20px;
+            color: #ecf0f1; /* Light Grey for Text */
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .last-feature p span {
+            color: #ff6600;
+            font-weight: bold;
+        }
+
+        /* Extra Content Section Styling */
+        .extra-content-section {
+            background-color: #ffffff;
+            padding: 40px;
+            margin-top: 40px;
+            font-size: 20px;
+            color: #444;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%; /* Ensure it stretches to full width */
+            max-width: 900px; /* Limit the max width */
+            margin-left: auto;
+            margin-right: auto;
+            box-sizing: border-box;
+        }
+
+        .extra-content-section h2 {
+            text-align: left; /* Align title to the left */
+            color: #ff6600;
+            font-size: 30px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .extra-content-section p {
+            line-height: 1.8;
+            font-size: 18px;
+            color: #333;
+            text-align: justify;
+            margin-right: 0; /* No right margin to prevent the gap */
+        }
+
+        /* Media Queries for Responsive Design */
+        @media (max-width: 768px) {
+            .swiper-container {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="#">RealEstate</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" id="home">HOME</a></li>
+                <li><a href="add-listing.html" id="Add Listing">ADD LISTING</a></li>
+                <li><a href="contact.html" id="contact" target="_blank">ABOUT US / CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="propertiesLISTINGS">PROPERTIES LISTINGS</div>
+
+    <div id="search">
+        <label for="price-search">SELECT:</label>
+        <select id="price-search" name="SEARCH">
+            <option value="NONE">None</option>
+            <option value="RENT">FOR RENT</option>
+            <option value="PURCHASE">FOR PURCHASE</option>
+        </select>
+    </div>
+
+    <div class="carousel-container">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="images/carousel1.webp" alt="Property 1">
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/carousel2.webp" alt="Property 2">
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/carousel3.avif" alt="Property 3">
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/carousel4.avif" alt="Property 4">
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/carousel5.avif" alt="Property 5">
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+
+    <div class="listing-page-content">
+        <p>Explore our latest properties. Swipe through the gallery to find your <span>dream home!</span></p>
+    </div>
+
+    <!-- Content Section: How We Help You -->
+    <div class="content-section">
+        <h2>How We Help You</h2>
+        <p>At RealEstate, we understand that finding the perfect property can be overwhelming. That’s why we offer personalized services to ensure you have the best possible experience. Whether you’re renting or purchasing, we are with you every step of the way, providing expert guidance and assistance to make the process as smooth as possible.</p>
+        <p>Our team of experienced agents is ready to answer all your questions, show you the best properties within your budget, and help you negotiate the best deal. We're here to make your property journey a success!</p>
+    </div>
+
+    <!-- Content Section: Why Choose Us? -->
+    <div class="content-section">
+        <h2>Why Choose Us?</h2>
+        <p>At RealEstate, we believe in making the property-buying experience simple and enjoyable. With a wide range of listings, from budget homes to luxurious estates, we cater to all your needs. Our team of expert agents is always ready to help you find the perfect home, whether you're looking to rent or buy.</p>
+        <p>We offer personalized support throughout the entire process, from viewing properties to closing the deal. Join the thousands of satisfied customers who have found their dream homes through us!</p>
+    </div>
+
+    <!-- Last Feature Section (Different Styling) -->
+    <div class="last-feature">
+        <h2>Our Commitment to Excellence</h2>
+        <p>At RealEstate, our mission is to provide a seamless experience for all our clients. Whether you are looking to rent or buy, we offer tailored solutions to meet your needs. We are committed to guiding you through every step of your property journey. With our expert team, you can rest assured that you will receive the highest level of service and support.</p>
+        <p>We focus on delivering quality and excellence in every transaction, making sure each customer walks away with the perfect property that fits their lifestyle. Join us today and experience the difference in working with a top-tier real estate agency!</p>
+    </div>
+
+    <footer id="inspiringLINE">Home is the nicest word there is.
+        <div class="footer-content">
+            <center>
+                <p>&copy; 2024 RealEstate Agency. All rights reserved.</p>
+                <p>Contact us at: info@realestate.com</p>
+                <p>
+                    <a href="https://www.facebook.com/profile.php?id=100082064629181" target="_blank" class="facebook-link">
+                        Connect With FACEBOOK
+                    </a>
+                </p>
+            </center>
+        </div>
+    </footer>
+
+    <script src="listing.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script>
+        const swiper = new Swiper('.swiper-container', {
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            slidesPerView: 1,
+            spaceBetween: 10,
+        });
+    </script>
+</body>
+</html>

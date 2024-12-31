@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="#">RealEstate</a>
+            </div>
+            <ul class="nav-links">
+               <li><a href="index.html" id="home">HOME</a></li>
+              <li> <a href="purchase.html" id="PURCHASE">BUY HOUSE</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    
+<div id="search">
+    <label for="price-search">SEARCH BY PRICE:</label>
+    <select id="price-search" name="SEARCH">
+      <option value="5000">Less Than 5000$</option>
+      <option value="10000">Less Than 10000$</option>
+      <option value="20000">Less Than 20000$</option>
+      <option value="20001">Greater Than 20000$</option>
+    </select>
+   </div>
+
+   <div class="img1"  data-price="12000">
+       <img src="images/inside1.jpg" alt="INNER VIEW OF BLUE LINE" >
+       <span class="price">12000$</span>
+       <span class="description"><br>Blue Line Flats
+          900 14th Street Northwest, 211, Austin, MN 55912</span>
+          <button class="BTN">APPLY</button>
+        </div>
+      
+        <div class="img2" data-price="15000">
+           <img src="images/inside2.jpg" alt="RENOVATED VIEW">
+           <span class="price">15000$</span>
+           <span class="description"><br>Country View 125-2 Renovated
+              125 1st Street, 2, Boone, IA 50036</span>
+              <br>
+              <button class="BTN">APPLY</button>
+        </div>
+        <div class="img3" data-price="7000">
+           <img src="images/inside3.jpg" alt="VIEW OF COUNTRY SIDE HOUSE">
+           <span class="price">7000$</span>
+           <span class="description"><br>Country Side House 876 15th Street Northeast, Reigns, NG 76549</span>
+              <br>
+              <button class="BTN">APPLY</button>
+        </div>
+
+        <div class="img4" data-price="20000">
+           <img src="images/inside4.jpg" alt="INSIDE VIEW OF LUXURY VILLA">
+           <span class="price">20000$</span>
+           <span class="description"><br>North Virginia, 978 NV , 87099</span>
+              <br>
+              <button class="BTN">APPLY</button>
+        </div>
+
+        <div class="img5" data-price="18000">
+           <img src="images/image5.jpeg" alt="INSIDE VIEW OF WOODEN HOUSE">
+           <span class="price">18000$</span>
+           <span class="description"><br>Arkansas, 978 AR , 56899</span>
+              <br>
+              <button class="BTN">APPLY</button>
+        </div>
+        
+        <div class="img6" data-price="3999">
+           <img src="images/image6.jpeg" alt="INSIDE VIEW OF OLD STYLED HOUSE">
+           <span class="price">3999$</span>
+           <span class="description"><br>Texas, 888 TX , 56349</span>
+              <br>
+              <button class="BTN">APPLY</button>
+        </div>
+
+        <div class="img7" data-price="22999">
+           <img src="images/image7.jpeg" alt="STYLISH RENOVATED HOUSE">
+           <span class="price">22999$</span>
+           <span class="description"><br>Minnesiota, 097 MNS , 77349</span>
+              <br>
+              <button class="BTN">APPLY</button>
+        </div>
+        <div class="img8" data-price="29999">
+           <img src="images/image8.jpeg" alt="WOODEN STYLISH HOUSE">
+           <span class="price">29999$</span>
+           <span class="description"><br>Alaska, 0911 ALA , 00909</span>
+              <br>
+              <button class="BTN">APPLY</button>
+        </div>
+        <div class="img9" data-price="31999">
+           <img src="images/image9.jpeg" alt="WOODEN MADE OLD STYLED HOUSE">
+           <span class="price">31999$</span>
+           <span class="description"><br>Pensalyania, 997 PA, 65650</span>
+              <br>
+              <button class="BTN">APPLY</button>
+        </div>
+
+        
+           <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+           <footer id="inspiringLINE">Home is the nicest word there is.
+               <div class="footer-content">
+                 <center>  <p>&copy; 2024 RealEstate Agency. All rights reserved.</p>
+                   <p>Contact us at: info@realestate.com</p>
+                   <p>
+                       <a href="https://www.facebook.com/profile.php?id=100082064629181" target="_blank" class="facebook-link">
+                           Connect With FACEBOOK
+                       </a>
+                   </p></center>
+               </div>
+           </footer>
+
+
+           <script>
+            
+    // Select dropdown and all property divs
+    const priceFilter = document.getElementById("price-search");
+    const properties = document.querySelectorAll(".img1, .img2, .img3, .img4, .img5, .img6, .img7, .img8, .img9"); // Select all property divs
+    
+    
+    
+    // Add event listener for dropdown changes
+    priceFilter.addEventListener("change", function () {
+        const selectedPrice = parseInt(priceFilter.value); // Get selected price from dropdown
+    
+        // Loop through all properties
+        properties.forEach((property) => {
+            const propertyPrice = parseInt(property.getAttribute("data-price")); // Get price from data-price attribute
+            
+            // Logic for price filtering
+            if (selectedPrice === 20001) {
+                // If "Greater Than 20000$" is selected
+                property.style.display = propertyPrice > 20000 ? "block" : "none";
+            } else {
+                // If "Less Than [value]$" is selected
+                property.style.display = propertyPrice <= selectedPrice ? "block" : "none";
+            }
+        });
+    });
+
+
+    /*APPLY BUTTON*/
+
+    let buttons= document.getElementsByClassName('BTN');
+    for(let button of buttons)
+    {
+    button.addEventListener('click',function()
+{
+    alert("APPLIED SUCCESSFULLY!");
+})};
+
+           </script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="#">RealEstate</a>
+            </div>
+            <ul class="nav-links">
+               <li><a href="index.html" id="home">HOME</a></li>
+              <li> <a href="rent.html" id="RENT">RENTAL HOUSES</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    
+    <div id="search">
+        <label for="price-search">SEARCH BY PRICE:</label>
+    <select id="price-search" name="SEARCH">
+        <option value="None">None</option>
+      <option value="500">Less Than 500K$</option>
+      <option value="800">Less Than  800K$</option>
+      <option value="1000">Less Than 1M$</option>
+      <option value="1001">Greater Than 1M$</option>
+    </select>
+    </div>
+
+    
+   <div class="img1"  data-price="799">
+    <img src="images/purchase1.jpg" alt="LUXURY HOUSE" >
+    <span class="price">799K$</span>
+    <span class="description"><br>Luxurious apartments at Blue Line Flats, 900 14th Street Northwest, Austin, MN 55912</span>
+       <button class="BTN">APPLY</button>
+     </div>
+   
+     <div class="img2" data-price="1000">
+        <img src="images/purchase2.jpg" alt="LUXURY HOME">
+        <span class="price">1M$</span>
+        <span class="description"><br>Step into modern living at Country View Apartments, 125 1st Street, Boone, IA 50036</span>
+           <br>
+           <button class="BTN">APPLY</button>
+     </div>
+     <div class="img3" data-price="600">
+        <img src="images/purchase3.jpg" alt="VIEW OF COUNTRY SIDE HOUSE">
+        <span class="price">600K$</span>
+        <span class="description"><br>Experience serenity in style at Country Side House, 876 15th Street Northeast, Reigns, NG 76549</span>
+           <br>
+           <button class="BTN">APPLY</button>
+     </div>
+
+     <div class="img4" data-price="450">
+        <img src="images/purchase4.jpg" alt="INSIDE VIEW OF LUXURY VILLA">
+        <span class="price">450K$</span>
+        <span class="description"><br>Welcome to luxury redefined at North Virginia Villas, 978 NV, 87099</span>
+           <br>
+           <button class="BTN">APPLY</button>
+     </div>
+
+     <div class="img5" data-price="1001">
+        <img src="images/purchase5.jpg" alt="INSIDE VIEW OF WOODEN HOUSE">
+        <span class="price">1.2M$</span>
+        <span class="description"><br>Affordable elegance awaits at Texas Estate Homes, 888 TX, 56349</span>
+           <br>
+           <button class="BTN">APPLY</button>
+     </div>
+     
+     <div class="img6" data-price="1001">
+        <img src="images/purchase6.jpg" alt="INSIDE VIEW OF OLD STYLED HOUSE">
+        <span class="price">2M$</span>
+        <span class="description"><br>Affordable elegance awaits at Texas Estate Homes, 888 TX, 56349</span>
+           <br>
+           <button class="BTN">APPLY</button>
+     </div>
+
+    
+
+     
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+        <footer id="inspiringLINE">Home is the nicest word there is.
+            <div class="footer-content">
+              <center>  <p>&copy; 2024 RealEstate Agency. All rights reserved.</p>
+                <p>Contact us at: info@realestate.com</p>
+                <p>
+                    <a href="https://www.facebook.com/profile.php?id=100082064629181" target="_blank" class="facebook-link">
+                        Connect With FACEBOOK
+                    </a>
+                </p></center>
+            </div>
+        </footer>
+
+
+         <script>  
+   
+
+    // Select dropdown and all property divs
+const priceFilter = document.getElementById("price-search");
+const properties = document.querySelectorAll(".img1, .img2, .img3, .img4, .img5, .img6"); // Select all property divs
+
+// Add event listener for dropdown changes
+priceFilter.addEventListener("change", function () {
+    const selectedPrice = priceFilter.value; // Get selected price from dropdown as a string
+
+    // Loop through all properties
+    properties.forEach((property) => {
+        const propertyPrice = parseInt(property.getAttribute("data-price")); // Get price from data-price attribute
+
+        // Logic for showing/hiding properties
+        if (selectedPrice === "None") {
+            // Show all properties if "None" is selected
+            property.style.display = "block";
+        } else if (selectedPrice === "1001") {
+            // Show properties greater than 1M$
+            property.style.display = propertyPrice >= 1001 ? "block" : "none";
+        } else {
+            // Show properties less than the selected price
+            property.style.display = propertyPrice <= parseInt(selectedPrice) ? "block" : "none";
+        }
+    });
+});
+
+// APPLY BUTTON
+let buttons = document.getElementsByClassName("BTN");
+for (let button of buttons) {
+    button.addEventListener("click", function () {
+        alert("APPLIED SUCCESSFULLY!");
+    });
+}
+
+
+           </script>
+</body>
+</html>
